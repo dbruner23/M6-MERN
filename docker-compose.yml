@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+        m6_db:
+              container_name: properties
+              image: mongo:latest
+              restart: always
+              network_mode: my-network
+              volumes:
+                - m6_db:/data/db
+              ports:
+                - '27017:27017'
+        
+        api:
+            container_name: m6-api
+            build: ./api
+            network_mode: my-network
+            restart: always
+            ports:
+              - "4000:4000"
+            environment: 
+              MONGODB_URI: mongodb://properties:27017
+              DB_NAME: m6_db
+              NAME: DavidBruner
+            depends_on:
+              - m6_db
+            links:
+              - m6_db
+
+        ui:
+            build: ./ui
+            ports:
+              - "3000:3000"
+            container_name: m6-ui
+            network_mode: my-network
+            restart: always
+            volumes:
+              - ./ui/src:/app/src
+            stdin_open: true
+            tty: true
+            depends_on:
+              - api
+volumes: 
+  m6_db: {}

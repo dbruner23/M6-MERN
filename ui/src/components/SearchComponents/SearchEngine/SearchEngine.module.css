@@ -1,0 +1,102 @@
+.SearchEngineContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.HeaderText {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Outfit';
+    font-weight: 400;
+    width: 90vw;
+    margin: 2rem 0 2rem 0;
+}
+
+.HeadTextItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.SelectContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 80vw;
+    margin-bottom: 5rem;
+}
+
+.SelectItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Outfit';
+    font-size: 1.1rem;
+    width: 10rem;
+    gap: .5rem;
+}
+
+.Selectbox {
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 2.5rem;
+    width: 10rem;
+    border: none;
+    font-family: 'Outfit';
+    font-size:1.1rem;
+    color: #808080;
+    padding: 5px;
+}
+
+.SubheadText {
+    font-family: 'Outfit';
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.IconContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100vw;
+    margin-bottom: 2.5rem;
+}
+
+.Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 6rem;
+    
+}
+
+.Icon > img, .ActiveIcon > img {
+    width: 6rem;
+}
+
+.ActiveIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #737373;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 6rem;
+}
+
+.ButtonRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

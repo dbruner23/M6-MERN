@@ -4,27 +4,19 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import FindAddRoute from './Routes/FindAddRoute.js';
+import SearchRoute from './Routes/SearchRoute.js';
 import { MongoClient } from 'mongodb'
 
-
-//Routes
-
 const app = express();
-
-// to serve images for public
-app.use(express.static('public'));
-app.use('/images', express.static("images"));
 
 // Middleware
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
-
 dotenv.config()
 
-//another approach
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(process.env.MONGO_DB, {
         // dbName: process.env.DB_NAME,
         // user: process.env.DB_USER,
         // pass: process.env.DB_PASS,
@@ -51,6 +43,7 @@ app.listen(4000, () => {
 });
 
 app.use('/property', FindAddRoute)
+app.use('/search', SearchRoute)
 
 // Running local mongoDB (not containerised)
 // const url = 'mongodb://localhost:27017';

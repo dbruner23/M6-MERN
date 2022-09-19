@@ -3,15 +3,22 @@ import mongoose from "mongoose";
 const propertySchema = mongoose.Schema(
     {
         street: { type: String, required: true },
+        propertyType: String,
         suburb: String,
         city: String,
         postcode: Number,
-        headimg: String,
+        headImage: String,
         beds: Number,
         baths: Number,
         carparks: Number,
         price: Number,
-        info: String
+        info: String,
+        transport: Boolean,
+        grocery: Boolean,
+        parks: Boolean,
+        pets: Boolean,
+        gyms: Boolean,
+        cafes: Boolean
     },
     { timestamps: true }
 )

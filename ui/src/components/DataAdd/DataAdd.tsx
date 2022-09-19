@@ -7,28 +7,42 @@ const Quicksort = () => {
 
 interface Property {
   street: string,
+  propertyType: string,
   suburb: string,
   city: string,
   postcode: number,
-  headimg?: string,
+  headImage?: string,
   beds?: number,
   baths?: number,
   carparks?: number,
   price?: number,
-  info?: string   
+  info?: string
+  transport?: boolean,
+  grocery?: boolean,
+  parks?: boolean,
+  pets?: boolean,
+  gyms?: boolean,
+  cafes?: boolean
 }
   
   const [propertyData, setPropertyData] = useState({
     street: "",
+    propertyType: "",
     suburb: "",
     city: "",
-    postcode: undefined,
-    headimg: "",
-    beds: undefined,
-    baths: undefined,
-    carparks: undefined,
-    price: undefined,
-    info: ""
+    postcode: 0,
+    headImage: "",
+    beds: 1,
+    baths: 1,
+    carparks: 0,
+    price: 0,
+    info: "",
+    transport: false,
+    grocery: false,
+    parks: false,
+    pets: false,
+    gyms: false,
+    cafes: false
   })
     
 useEffect(() => {
@@ -68,6 +82,17 @@ useEffect(() => {
        />
      </div>
      <div className={styles.InputLine}>
+       <label htmlFor="propertyType">propertyType</label>
+       <input
+         type="text"
+         placeholder="123 Sesame St."
+         className="infoInput"
+         name="propertyType"
+         onChange={handleChange}
+         value={propertyData.propertyType}
+       />
+     </div>
+     <div className={styles.InputLine}>
        <label htmlFor="suburb">Suburb</label>
        <input
          type="text"
@@ -101,14 +126,14 @@ useEffect(() => {
        />
      </div>
      <div className={styles.InputLine}>
-       <label htmlFor="headimg">Header Image</label>
+       <label htmlFor="headImage">Header Image</label>
        <input
          type="text"
          placeholder="url..."
          className="infoInput"
-         name="headimg"
+         name="headImage"
          onChange={handleChange}
-         value={propertyData.headimg}
+         value={propertyData.headImage}
        />
      </div>
      <div className={styles.InputLine}>
@@ -162,6 +187,72 @@ useEffect(() => {
          placeholder="Really Nice!"
          className="infoInput"
          name="info"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="transport">Transport</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="transport"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="grocery">Grocery</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="grocery"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="parks">parks</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="parks"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="pets">pets</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="pets"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="gyms">gyms</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="gyms"
+         onChange={handleChange}
+         value={propertyData.info}
+       />
+     </div>
+     <div className={styles.InputLine}>
+       <label htmlFor="cafes">cafes</label>
+       <input
+         type="text"
+         placeholder="false"
+         className="infoInput"
+         name="cafes"
          onChange={handleChange}
          value={propertyData.info}
        />

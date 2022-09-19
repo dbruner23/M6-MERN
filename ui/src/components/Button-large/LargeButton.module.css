@@ -1,0 +1,16 @@
+
+.LargeButtonStyle {
+    width: 42%;
+    height: 101px;
+    margin: 516px 403px 61px 246px;
+    border-radius: 50px;
+    background-color: rgba(200, 27, 39, 0.87);
+}
+.Text {
+    width: 100%;
+    height: 48px;
+    font-family: Kanit;
+    font-size: 32px;    
+    text-align: left;
+    color: #fff; 
+}

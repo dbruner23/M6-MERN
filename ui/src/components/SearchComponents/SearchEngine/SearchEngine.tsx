@@ -100,7 +100,7 @@ const SearchEngine = () => {
               </option>
               <option value={0}>Any</option>
               <option value={400}>$400/wk</option>
-              <option value={1800}>$800/wk</option>
+              <option value={800}>$800/wk</option>
               <option value={1200}>$1200/wk</option>
               <option value={1600}>$1600/wk</option>
             </select>
@@ -114,7 +114,7 @@ const SearchEngine = () => {
             </option>
             <option value={100000}>Any</option>
             <option value={400}>$400/wk</option>
-            <option value={1800}>$800/wk</option>
+            <option value={800}>$800/wk</option>
             <option value={1200}>$1200/wk</option>
             <option value={1600}>$1600/wk</option>
           </select>

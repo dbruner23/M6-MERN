@@ -20,7 +20,7 @@ export function Header() {
     <>
     <Popover>
                 <div className="sticky">
-                <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 pr-12 pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
+                <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 md:pr-12 pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
                     <div className="flex flex-shrink-0 flex-grow lg:flex-grow-0 mr-16">
                         <div className="flex w-full items-center justify-between md:w-auto">
                             <a href="/">
@@ -31,7 +31,7 @@ export function Header() {
                             />
                             </a>
                             <div className="-mr-2 flex items-center md:hidden">
-                            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-white hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
+                            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-white hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-grey-500">
                                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                             </Popover.Button>
                             </div>
@@ -72,12 +72,12 @@ export function Header() {
                         <div>
                         <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=green&shade=600"
+                            src={headerTitle}
                             alt=""
                         />
                         </div>
                         <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
+                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-grey-500">
                             <span className="sr-only">Close main menu</span>
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </Popover.Button>

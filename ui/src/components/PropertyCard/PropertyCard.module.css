@@ -1,0 +1,62 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 519px;
+  height: 665px;
+  padding: 18px 15px 17px 17px;
+  border-radius: 20px;
+  background-color: #d9d9d9;
+  /* border: solid red 2px; */
+  margin: 2%;
+}
+.PropertyImage {
+    height: 50%;
+    text-align: center;
+    /* border: solid green 2px; */
+    width: 100%;
+}
+.Address {
+  padding-top: 2%;
+  width: 100%;
+  height: 48px;
+  margin: 2%;
+  font-family: Kanit;
+  font-size: 20px;
+  /* border: solid red 2px; */
+  color: #000;
+}
+.Price {
+  width: 100%;
+  height: 48px;
+  font-family: Kanit;
+  font-size: 20px;
+  /* border: solid red 2px; */
+  color: #000; 
+}
+.UtilitiesContainer {
+    display: flex;
+    height: 15%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* border: solid blue 2px; */
+    width: 70%;
+    
+}
+.UtilitiesContainerTop {
+    /* border: solid black 2px; */
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.UtilitiesContainerBottom {
+    /* border: solid black 2px; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

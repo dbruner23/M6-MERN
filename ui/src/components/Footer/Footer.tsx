@@ -25,7 +25,7 @@ export const Footer = () => {
 
     return (
       <>
-        <footer className="pt-12 fixed w-full bottom-0 left-0 bg-[#4b4b4b]">
+        <footer className="pt-12 fixed w-full bottom-0 left-0 bg-[#4b4b4b] max-h-[750px]">
             <div className="flex text-white justify-between px-24">
                 <div className="max-w-md">
                     <h2 className="underline pb-16 text-30 text-3xl">

@@ -27,6 +27,8 @@ line-height: 63px;
 text-align: center;
 color: #000000;
 /* border: solid red 2px; */
+width: 80%;
+height: 20%;
 margin-top: -5%;
 }
 .TextInfo {  
@@ -36,5 +38,9 @@ font-size: 28px;
 line-height: 42px;
 color: #000000;
 /* border: solid red 2px; */
-
+width: 90%;
+height: 25%;
+margin-top: -10%;
+margin-bottom: 5%;
 }
+

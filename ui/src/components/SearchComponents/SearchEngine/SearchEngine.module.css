@@ -99,4 +99,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 5rem;
+}
+
+.ResultsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    padding: 2rem 2rem 2rem 2rem;
+
 }

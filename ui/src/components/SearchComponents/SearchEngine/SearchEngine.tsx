@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import styles from './SearchEngine.module.css'
+import Card from '../Cards/Card'
 import backarrow from '../../../images/arrowleft.png'
 import weights from '../../../images/gyms.png'
 import coffee from '../../../images/cafes.png'
@@ -10,6 +11,7 @@ import bench from '../../../images/parks.png'
 import bus from '../../../images/transport.png'
 import paw from '../../../images/pets.png'
 import trolley from '../../../images/grocery.png'
+
 
 
 const SearchEngine = () => {
@@ -28,6 +30,8 @@ const SearchEngine = () => {
     cafes: boolean
   }
 
+  
+
   const [queryData, setQueryData] = useState({
     propertyType: "",
     priceMin: 0,
@@ -42,6 +46,24 @@ const SearchEngine = () => {
     cafes: false
   })
 
+  const [resultData, setResultData] = useState([])
+  
+  // useState and useEffect to break returned data into array of arrays to display 6 results at a time
+  const [resultsArrays, setResultsArrays] = useState<any[]>([])
+  console.log(resultsArrays[0]);
+
+  useEffect(() => {
+    let resultsarrays : any = [];
+
+    for (let i = 0; i <= (resultData.length - 1); i+=7) {
+      resultsarrays[i] = resultData.slice(i, (i + 6));
+    }
+    setResultsArrays(resultsarrays)
+    
+  }, [resultData])
+
+  //functions for gathering and sending query data
+
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -54,15 +76,17 @@ const SearchEngine = () => {
     }
   };
 
-  console.log(queryData);
-
   const handleSubmit = async () => {
     await axios.post('http://localhost:4000/search', queryData)
       .then((response) => {
-        console.log(response.data);
+        setResultData(response.data)
       })
       .catch((error) => { console.log(error) })
   }
+
+  
+
+   
 
   return (
     <div className={styles.SearchEngineContainer}>
@@ -172,6 +196,14 @@ const SearchEngine = () => {
       </div>
       <div className={styles.ButtonRow}>
           <button onClick={() => handleSubmit()}>Go</button>
+      </div>
+      <div className={styles.ResultsContainer}>
+        {
+          resultsArrays[0]?.map((data:any[], index:number) => {
+            const CardProps = {key: index, data: data}
+            return <Card {...CardProps}/>
+          })
+        }
       </div>
     </div>
   )

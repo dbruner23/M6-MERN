@@ -32,7 +32,7 @@ export const Footer = () => {
                         Contact
                     </h2>
                     <div className="space-y-10 text-2xl">
-                        <div className="text-left">
+                        <div className="lg:text-left">
                             <p>
                                 Level 17, PWC Building Commercial Bay Tower
                             </p>
@@ -43,7 +43,7 @@ export const Footer = () => {
                                 CBD 1010, New Zealand
                             </p>
                         </div>
-                        <div className="text-left">
+                        <div className="lg:text-left">
                             <p>
                                 P.O. Box 106500, Customs Street,                        
                             </p>
@@ -51,7 +51,7 @@ export const Footer = () => {
                                 AUCKLAND 1010, NEW ZEALAND
                             </p>
                         </div>
-                        <div className="text-left">
+                        <div className="lg:text-left">
                             <p>
                                 Phone: 09 391 4642
                             </p>
@@ -69,25 +69,25 @@ export const Footer = () => {
                         Articles
                     </h2>
                     <div className="text-left space-y-4 text-lg">
-                        <div className="flex ">
+                        <div className="flex place-content-center">
                             <img src={house} alt="house" className="max-w-[80px] object-contain"/>
                             <p className="pl-3 max-w-[320px]">
                             5 Skills And Attributes Property Managers Must Have In 2022
                             </p> 
                         </div>
-                        <div className="flex">
+                        <div className="flex place-content-center">
                             <img src={deal} alt="meeting" className="max-w-[80px] object-contain"/>
                             <p className="pl-3 max-w-[340px]">
                             Privacy Laws – How A Good Property Manager Can Help You Understand What You Can And Cannot Ask Your Tenants
                             </p>
                         </div>
-                        <div className="flex">
+                        <div className="flex place-content-center">
                             <img src={gift} alt="gift" className="max-w-[80px] object-contain"/>
                             <p className="pl-3 max-w-[220px]">
                             Five Factors to Help You Decide If You Need a Property Manager
                             </p>
                         </div>
-                        <div className="flex">
+                        <div className="flex place-content-center">
                             <img src={talk} alt="chat" className="max-w-[80px] object-contain"/>
                             <p className="pl-3 max-w-[210px]">
                             Six Questions to Ask Yourself Before You Hire a Property Manager

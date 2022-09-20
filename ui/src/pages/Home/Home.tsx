@@ -17,6 +17,7 @@ const Home = () => {
   return (
     <>
     <div className={style.topImageContainer}>
+    <Header />
       <span className={style.imageHeader}>Property Management Auckand - Metro NZ Property Management LTD</span>
       <span className={style.imageText}>HELPING CLIENTS TO ACHIEVE HARMONY THROUGH OUR EXPERTESE AND SKILLS </span>
       <div className={style.topButtonContainer}>
@@ -127,7 +128,6 @@ const Home = () => {
         <span className={style.sponserFive}></span>
         <span className={style.sponserSix}></span>
       </div>
-      <Header />
       <Footer />
    </>
   ) 

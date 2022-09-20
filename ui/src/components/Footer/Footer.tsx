@@ -25,10 +25,10 @@ export const Footer = () => {
 
     return (
       <>
-        <footer className="pt-12 w-full bottom-0 mt-20 left-0 bg-[#4b4b4b] max-h-[750px]">
-            <div className="flex text-white justify-between px-4 xl:px-24">
-                <div className="max-w-md">
-                    <h2 className="underline pb-16 text-3xl">
+        <footer className="">
+            <div className="lg:flex text-white bottom-0 bg-[#4b4b4b] space-y-12 lg:justify-between px-4 xl:px-24 pt-3 w-full mt-20 lg:max-h-[750px] pb-14">
+                <div className="max-w-md mt-12">
+                    <h2 className="underline lg:pb-12 pb-4 text-3xl">
                         Contact
                     </h2>
                     <div className="space-y-10 text-2xl">
@@ -65,7 +65,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="max-w-md">
-                    <h2 className="underline pb-16 text-3xl">
+                    <h2 className="underline lg:pb-12 pb-4 text-3xl">
                         Articles
                     </h2>
                     <div className="text-left space-y-4 text-lg">
@@ -96,7 +96,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="max-w-md space-y-8 text-2xl">
-                    <h2 className="underline pb-8 text-3xl">
+                    <h2 className="underline lg:pb-8 pb-1 text-3xl">
                         Get Involved
                     </h2>
                     <div>
@@ -111,7 +111,7 @@ export const Footer = () => {
                         </div>
                         <input type="text" className="shrink text-black p-1 rounded-3xl text-2xl pl-6 pr-10 border-green-500" onChange={handleChange} name="day" placeholder={text}/>
                     </div>
-                    <div className="flex justify-between pt-12 gap-x-1">
+                    <div className="flex justify-between pt-12 gap-x-1 shrink">
                         <div className="max-w-[25%]">
                             <img src={facebook} alt="facebook"/>
                         </div>
@@ -127,9 +127,9 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-left pt-8 pb-10 pl-24 mt-20 text-zinc-600 w-full bg-white text-sm">
-                © 2022 METRO NZ PROPERTY MANAGEMENT | DISPUTES PROCESS
-            </div>
+        <div className="text-left pt-5 pb-10 pl-24 mt-2 text-zinc-600 w-full bg-white text-sm">
+            © 2022 METRO NZ PROPERTY MANAGEMENT | DISPUTES PROCESS
+        </div>
         </footer>
       </>
     );

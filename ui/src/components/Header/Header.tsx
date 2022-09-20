@@ -20,8 +20,8 @@ export function Header() {
     <>
     <Popover>
                 <div className="sticky">
-                <nav className="bg-[#4b4b4b] pt-3 pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
-                    <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0 mr-16">
+                <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 pr-12 pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
+                    <div className="flex flex-shrink-0 flex-grow lg:flex-grow-0 mr-16">
                         <div className="flex w-full items-center justify-between md:w-auto">
                             <a href="/">
                             <img
@@ -36,8 +36,8 @@ export function Header() {
                             </Popover.Button>
                             </div>
                         </div>
-                        </div>
-                        <div className="hidden md:ml-10 md:block md:space-x-9 md:pr-4">
+                    </div>
+                    <div className="hidden md:ml-10 md:flex md:space-x-12 md:pr-10">
                         {navigation.map((item) => (
                             <a key={item.name} href={item.href} className="font-medium text-white hover:text-gray-900">
                             {item.name}
@@ -46,7 +46,7 @@ export function Header() {
                         <a href="/">
                             <img
                                 alt="Search Icon"
-                                className="max-w-[25px]"
+                                className="max-w-[25px] mx-6"
                                 src={searchIcon}
                             />
                         </a>
@@ -97,7 +97,6 @@ export function Header() {
                     <a href="/">
                         <img
                             alt="Search Icon"
-                            className=""
                             src={searchIcon}
                         />
                     </a>

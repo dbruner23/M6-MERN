@@ -26,8 +26,8 @@ export const Footer = () => {
     return (
       <>
         <footer className="">
-            <div className="lg:flex text-white bottom-0 bg-[#4b4b4b] space-y-12 lg:justify-between px-4 xl:px-24 pt-3 w-full mt-20 lg:max-h-[750px] pb-14">
-                <div className="max-w-md mt-12">
+            <div className="lg:flex text-white bottom-0 bg-[#4b4b4b] place-content-center space-y-12 lg:justify-between px-4 xl:px-24 pt-3 w-full mt-20 lg:max-h-[750px] pb-14">
+                <div className="lg:max-w-md mt-12">
                     <h2 className="underline lg:pb-12 pb-4 text-3xl">
                         Contact
                     </h2>
@@ -64,7 +64,7 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md">
+                <div className="lg:max-w-md">
                     <h2 className="underline lg:pb-12 pb-4 text-3xl">
                         Articles
                     </h2>
@@ -95,7 +95,7 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md space-y-8 text-2xl">
+                <div className="lg:max-w-md space-y-8 text-2xl">
                     <h2 className="underline lg:pb-8 pb-1 text-3xl">
                         Get Involved
                     </h2>
@@ -111,7 +111,7 @@ export const Footer = () => {
                         </div>
                         <input type="text" className="shrink text-black p-1 rounded-3xl text-2xl pl-6 pr-10 border-green-500" onChange={handleChange} name="day" placeholder={text}/>
                     </div>
-                    <div className="flex justify-between pt-12 gap-x-1 shrink">
+                    <div className="flex justify-between pt-12 gap-x-1 shrink ">
                         <div className="max-w-[25%]">
                             <img src={facebook} alt="facebook"/>
                         </div>

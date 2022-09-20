@@ -1,9 +1,11 @@
 import React from 'react'
 import style from './Home.module.css'
-
 import { LargeButton } from '../../components/Button-large/LargeButton'
 import { NavCards } from '../../components/HomeComponents/DisplayCards/NavCards'
 // import { PropertyCard } from '../../components/PropertyCard/PropertyCard'
+import { Footer } from '../../components/Footer/Footer'
+import { Header } from '../../components/Header/Header'
+
 
 const Home = () => {
 
@@ -125,6 +127,8 @@ const Home = () => {
         <span className={style.sponserFive}></span>
         <span className={style.sponserSix}></span>
       </div>
+      <Header />
+      <Footer />
    </>
   ) 
 }

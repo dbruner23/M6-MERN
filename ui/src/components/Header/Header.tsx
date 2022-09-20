@@ -20,13 +20,13 @@ export function Header() {
     <>
     <Popover>
                 <div className="sticky">
-                <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 lg:pr-12 pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
-                    <div className="flex flex-shrink-0 flex-grow lg:flex-grow-0 mr-16">
+                <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 lg:pr-12 xl:pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
+                    <div className="flex flex-shrink-0 flex-grow lg:flex-grow-0">
                         <div className="flex w-full items-center justify-between lg:w-auto">
                             <a href="/">
                             <img
                                 alt="Your Company"
-                                className="max-w-[320px]"
+                                className="xl:max-w-[320px] max-w-[250px]"
                                 src={headerTitle}
                             />
                             </a>
@@ -46,7 +46,7 @@ export function Header() {
                         <a href="/">
                             <img
                                 alt="Search Icon"
-                                className="max-w-[25px] mx-6"
+                                className="max-w-[25px] xl:mx-6"
                                 src={searchIcon}
                             />
                         </a>

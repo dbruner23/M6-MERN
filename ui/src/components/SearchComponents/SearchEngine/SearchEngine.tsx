@@ -192,12 +192,12 @@ const SearchEngine = () => {
         </div>
       </div>
       <div className={styles.ButtonRow}>
-          <div className={styles.GoBtn} onClick={() => handleSubmit()}>GO</div>
+          <div className={styles.Btn} onClick={() => handleSubmit()}>GO</div>
       </div>
       <div className={styles.ResultsContainer}>
         {
           resultsArrays[0]?.map((data:any[], index:number) => {
-            const CardProps = {key: index, data: data}
+            const CardProps = {key: index, data: data, arrayIndex:0 }
             return <Card {...CardProps}/>
           })
         }

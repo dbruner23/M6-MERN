@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Card.module.css'
+import { useNavigate } from 'react-router-dom'
 import car from '../../../assets/search/car.png'
 import sleep from '../../../assets/search/sleep.png'
 import shower from '../../../assets/search/shower.png'
@@ -13,11 +14,14 @@ import coffee from '../../../assets/search/smallcoffee.png'
 interface CardProps {
     key: number;
     data: any;
+    arrayIndex: number;
 }
 
-const Card = ({key, data}: CardProps) => {
-    const { street, propertyType, suburb, city, postcode, headImage, beds, baths, carparks, price, info, transport, grocery, parks, pets, gyms, cafes } = data;
-    
+const Card = ({key, data, arrayIndex}: CardProps) => {
+    const { _id, street, propertyType, suburb, city, postcode, headImage, beds, baths, carparks, price, info, transport, grocery, parks, pets, gyms, cafes } = data;
+    let navigate = useNavigate();
+
+
 return (
     <div className={styles.Card}>
         <div className={styles.Image}>
@@ -40,6 +44,9 @@ return (
             {gyms && (<div className={styles.IconBox}><img src={weights} /></div>)}
             {transport && (<div className={styles.IconBox}><img src={bus} /></div>)}
             {parks && (<div className={styles.IconBox}><img src={bench} /></div>)}
+        </div>
+        <div className={styles.ButtonLine}>
+            <div className={styles.Btn} onClick={() => navigate(`/property/${arrayIndex}/${_id}`) }>MORE INFO</div>
         </div>
     </div>
   )

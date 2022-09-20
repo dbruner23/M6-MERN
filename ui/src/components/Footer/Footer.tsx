@@ -64,11 +64,11 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-md text-lg">
-                    <h2 className="underline text-2xl pb-16 text-3xl">
+                <div className="max-w-md">
+                    <h2 className="underline pb-16 text-3xl">
                         Articles
                     </h2>
-                    <div className="text-left space-y-4">
+                    <div className="text-left space-y-4 text-lg">
                         <div className="flex ">
                             <img src={house} alt="house" className="max-w-[80px] object-contain"/>
                             <p className="pl-3 max-w-[320px]">

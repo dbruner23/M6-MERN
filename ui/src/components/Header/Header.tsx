@@ -22,7 +22,7 @@ export function Header() {
                 <div className="sticky">
                 <nav className="bg-[#4b4b4b] bg-opacity-50 pt-3 lg:pr-12 xl:pl-6 pb-2 flex items-center justify-between justify-start" aria-label="Global">
                     <div className="flex flex-shrink-0 flex-grow lg:flex-grow-0">
-                        <div className="flex w-full items-center justify-between lg:w-auto">
+                        <div className="flex w-full mr-8 items-center justify-between lg:w-auto">
                             <a href="/">
                             <img
                                 alt="Your Company"

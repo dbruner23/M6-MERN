@@ -27,13 +27,6 @@
   margin-top: 90px;
   font-size: 48px; 
 }
-/* .rpmaIcon {
-    background-image: url('../../images/rpma.png');
-    background-size:contain;
-    height: 100px;
-    z-index: 1;
-    border: solid green 2px;
-} */
 .aboutMetro {
     display: flex;
     justify-content: center;
@@ -67,6 +60,9 @@
     width: 20%;
     color: white;
     padding: 0.5%;
+}
+.viewAll:hover {
+    background: #ED797B;
 }
 .LuxuryApartments {
     margin-top: 5%;
@@ -149,11 +145,6 @@
     background-image: url('../../images/SponsorSix.png');
     width: 252px;
 }
-
-
-
-
-
 .sponserOne, .sponserTwo, .sponserThree, .sponserFour, .sponserFive, .sponserSix {
     background-size: contain;
     background-repeat: no-repeat;

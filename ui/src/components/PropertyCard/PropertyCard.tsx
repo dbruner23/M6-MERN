@@ -2,7 +2,7 @@ import style from './PropertyCard.module.css'
 import { SmallButton } from '../Button-small/small-button'
 
 interface Props {
-    headImage?: String;
+    headImage?: any;
     Street?: String; 
     Suburb?: String;
     City?: String;  
@@ -52,7 +52,7 @@ export function PropertyCard({headImage, Street, Suburb, City, Cost, Beds, Baths
     return ( 
         <> 
         <div className={style.Container}>
-            <div className={style.PropertyImage}> {headImage} </div>
+            <img src={headImage} alt="" className={style.PropertyImage}></img>
             <span className={style.Address}>{Street}, {Suburb}, {City} </span>
             <span className={style.Price}>NZ ${Cost} Per Week</span>
             <div className={style.UtilitiesContainer}>
@@ -71,7 +71,7 @@ export function PropertyCard({headImage, Street, Suburb, City, Cost, Beds, Baths
                 </div>
             </div>
             <SmallButton
-               onClick={onClick}
+              link={'testing'}
                text={buttonHeader} 
             /> 
         </div>

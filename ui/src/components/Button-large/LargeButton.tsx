@@ -1,16 +1,23 @@
+import { useNavigate } from 'react-router-dom'
 import styles from './LargeButton.module.css'
 
 
 interface Props {
     text: string,
-    onClick: () => void
+    link: string, 
   }
   
-  export function LargeButton({text, onClick }:Props ) {
+  export function LargeButton({text, link }:Props ) {
+    
+    const navigate = useNavigate(); 
+    const Pathway = () => {
+      navigate(link)  
+    }
     return (
-      <button className={styles.LargeButtonStyle} onClick={onClick}>
-        <span className={styles.Text}> {text} </span>
+      <>
+      <button className={styles.LargeButtonStyle}>
+        <span className={styles.Text} onClick={Pathway}> {text} </span>
       </button>
+      </>
     )
-  
   }

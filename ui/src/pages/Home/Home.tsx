@@ -7,11 +7,6 @@ import { NavCards } from '../../components/HomeComponents/DisplayCards/NavCards'
 
 const Home = () => {
 
-  const testing = () => {
-    console.log('this was a test')
-
-
-  }
   return (
     <>
     <div className={style.topImageContainer}>
@@ -19,12 +14,12 @@ const Home = () => {
       <span className={style.imageText}>HELPING CLIENTS TO ACHIEVE HARMONY THROUGH OUR EXPERTESE AND SKILLS </span>
       <div className={style.topButtonContainer}>
         <LargeButton 
-          onClick={testing}
           text={'Book an apointment'}
+          link={'/Showcase'}
       /> 
-        <LargeButton
-          onClick={testing}
+        <LargeButton   
           text={'View our Properties'}
+          link={'/Search'}
       /> 
       </div>
       {/* <div className={style.rpmaIcon}></div> */}
@@ -47,19 +42,23 @@ const Home = () => {
         header={'Property Management Auckland'}
         buttonHeader={'Book an Appraisal'}
         image={'testing'}
+        link={'/Search:'} 
+
       /> 
       <NavCards
         content={'View what is available for your next home or apartment, from Mt. Albert and Three Kings to all over the Auckland region, we have your next place for you'}
         header={'Our Property Listings'}
         buttonHeader={'See our Listings'}
         image={'testing'}
+        link={'/Search'} 
         /> 
 
       <NavCards 
         content={"Changing to Metro NZ Property Management is easy. We collect the required information from you and in return, you'll see the benefits of working with a people-focused company. "}
         header={'Change to Metro NZ Property Management'}
         buttonHeader={'Make the change'}
-        image={'testing'}
+        image={'testing'}  
+        link={'/Search:'} 
         /> 
     </div>
 

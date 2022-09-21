@@ -4,6 +4,7 @@
   height: 75px;
   border-radius: 20px;
   background-color: #c81b27;
+  transition: 1s;
 }
 .Text {
     width: 100%;
@@ -11,4 +12,9 @@
     font-size: 24px;
     text-align: center;
     color: #fff;
+}
+.SmallButtonStyle:hover {
+  background-color: #ed797b;
+  /* text-decoration: underline; */
+  transition: 0.2s;
 }

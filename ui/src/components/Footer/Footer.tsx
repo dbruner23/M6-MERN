@@ -116,7 +116,7 @@ export const Footer = () => {
                             <img src={facebook} alt="facebook"/>
                         </div>
                         <div>
-                            <img src={instagram} alt="instagram" className=""/>
+                            <img src={instagram} alt="instagram"/>
                         </div>
                         <div>
                             <img src={twitter} alt="twitter"/>

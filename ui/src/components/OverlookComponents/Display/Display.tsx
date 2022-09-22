@@ -99,7 +99,7 @@ const Display = () => {
                   loading="lazy"
                   allowFullScreen
                   src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GMAPS_API_KEY}
-        &q=${street}+${suburb}`}>
+        &q=${street}+${suburb}+${city}`}>
             </iframe>
           </div>
           

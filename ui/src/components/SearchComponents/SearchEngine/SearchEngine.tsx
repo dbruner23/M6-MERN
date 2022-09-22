@@ -124,6 +124,7 @@ const SearchEngine = () => {
               <option value={800}>$800/wk</option>
               <option value={1200}>$1200/wk</option>
               <option value={1600}>$1600/wk</option>
+              <option value={2000}>$2000/wk</option>
             </select>
           </div>
         </div>
@@ -138,6 +139,7 @@ const SearchEngine = () => {
             <option value={800}>$800/wk</option>
             <option value={1200}>$1200/wk</option>
             <option value={1600}>$1600/wk</option>
+            <option value={2000}>$2000/wk</option>
           </select>
         </div>
         <div className={styles.SelectItem}>

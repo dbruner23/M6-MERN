@@ -1,15 +1,21 @@
 import styles from './smallButton.module.css'
+import { useNavigate } from 'react-router-dom'
 
 
 interface Props {
     text: String,
-    onClick: () => void
+    link: string 
   }
   
-  export function SmallButton({text, onClick }:Props ) {
+  export function SmallButton({text, link }:Props ) {
+
+    const navigate = useNavigate(); 
+    const Pathway = () => {
+      navigate(link)   
+    }
     return (
-      <button className={styles.SmallButtonStyle} onClick={onClick}>
-        <span className={styles.Text}>{text} </span>
+      <button className={styles.SmallButtonStyle}>
+        <span className={styles.Text} onClick={Pathway}> {text} </span>
       </button>
     )
   }

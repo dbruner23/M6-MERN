@@ -71,7 +71,7 @@ export function PropertyCard({images, Street, Suburb, City, Cost, Beds, Baths, c
                 </div>
             </div>
             <SmallButton
-               onClick={onClick}
+              link={'testing'}
                text={buttonHeader} 
             /> 
         </div>

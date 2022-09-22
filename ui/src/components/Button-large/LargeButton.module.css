@@ -15,3 +15,8 @@
     color: #fff; 
     /* border: solid red 2px; */
 }
+.LargeButtonStyle:hover {
+    /* border: dotted green 5px; */
+    background-color: #ed797b;
+    
+}

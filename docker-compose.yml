@@ -12,7 +12,6 @@ services:
         
         api:
             container_name: m6-api
-            # build: ./api
             image: nicocaba3/docker-work:api
             network_mode: my-network
             restart: always
@@ -28,15 +27,12 @@ services:
               - m6-db
 
         ui:
-            # build: ./ui
             image: nicocaba3/docker-work:ui
             ports:
               - "3000:3000"
             container_name: m6-ui
             network_mode: my-network
             restart: always
-            volumes:
-              - ./ui/src:/app/src
             stdin_open: true
             tty: true
             depends_on:

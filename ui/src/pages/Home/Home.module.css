@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     z-index: 0;
+    padding-bottom: 2%;
 }
 .topButtonContainer {
     display: flex;
@@ -60,9 +61,11 @@
     width: 20%;
     color: white;
     padding: 0.5%;
+    transition: 0.2s;
 }
 .viewAll:hover {
     background: #ED797B;
+    transition: 0.2s;
 }
 .LuxuryApartments {
     margin-top: 5%;
@@ -151,4 +154,11 @@
     align-items: center;
     height: 100%;
     /* border: solid red 2px; */
+}
+.ourPropertiesContainer {
+    /* border: solid red 2px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2%;
 }

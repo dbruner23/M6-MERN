@@ -5,6 +5,7 @@
     margin: 516px 0px 0px;
     border-radius: 50px;
     background-color: rgba(200, 27, 39, 0.87);
+    transition: 0.2s;
 }
 .Text {
     width: 100%;
@@ -18,5 +19,6 @@
 .LargeButtonStyle:hover {
     /* border: dotted green 5px; */
     background-color: #ed797b;
+    transition: 0.2s;
     
 }

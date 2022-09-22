@@ -3,18 +3,21 @@ import style from './Home.module.css'
 import CheckedImage from '../../images/Checks.png'
 import RefreshImage from '../../images/Refresh.png'
 import BlocksImage from '../../images/Blocks.png'
-
 import { LargeButton } from '../../components/Button-large/LargeButton'
 import { NavCards } from '../../components/HomeComponents/DisplayCards/NavCards'
 import Video from '../../components/Video/Video'
 
 // import { PropertyCard } from '../../components/PropertyCard/PropertyCard'
+import { Footer } from '../../components/Footer/Footer'
+import { Header } from '../../components/Header/Header'
+
 
 const Home = () => {
 
   return (
     <>
     <div className={style.topImageContainer}>
+    <Header />
       <span className={style.imageHeader}>Property Management Auckand - Metro NZ Property Management LTD</span>
       <span className={style.imageText}>HELPING CLIENTS TO ACHIEVE HARMONY THROUGH OUR EXPERTESE AND SKILLS </span>
       <div className={style.topButtonContainer}>
@@ -131,6 +134,7 @@ const Home = () => {
         <span className={style.sponserFive}></span>
         <span className={style.sponserSix}></span>
       </div>
+      <Footer />
    </>
   ) 
 }

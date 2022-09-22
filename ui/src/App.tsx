@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/property/:id" element={<Overlook />} />
+          <Route path="/property/:arrayindex/:id" element={<Overlook />} />
           <Route path="/data" element={<DataAdd />} />
           <Route path="*" element={<Error />} />
         </Routes>

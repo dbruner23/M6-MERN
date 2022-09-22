@@ -102,11 +102,25 @@
     margin-bottom: 5rem;
 }
 
+.Btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 3rem;
+    font-family: 'Outfit';
+    font-size: 1.3rem;
+    background: #C81B27;
+    color: white;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
 .ResultsContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
-    padding: 2rem 2rem 2rem 2rem;
+    gap: 3rem;
+    width: 90vw;
 
 }

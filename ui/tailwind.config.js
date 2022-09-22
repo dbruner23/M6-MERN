@@ -5,7 +5,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      30: ['30px', '38px']
     },
   },
   plugins: [],

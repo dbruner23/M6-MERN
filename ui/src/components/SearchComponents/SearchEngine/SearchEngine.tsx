@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import styles from './SearchEngine.module.css'
 import Card from '../Cards/Card'
-import backarrow from '../../../images/arrowleft.png'
-import weights from '../../../images/gyms.png'
-import coffee from '../../../images/cafes.png'
-import bench from '../../../images/parks.png'
-import bus from '../../../images/transport.png'
-import paw from '../../../images/pets.png'
-import trolley from '../../../images/grocery.png'
+import backarrow from '../../../assets/search/arrowleft.png'
+import weights from '../../../assets/search/gyms.png'
+import coffee from '../../../assets/search/cafes.png'
+import bench from '../../../assets/search/parks.png'
+import bus from '../../../assets/search/transport.png'
+import paw from '../../../assets/search/pets.png'
+import trolley from '../../../assets/search/grocery.png'
 
 
 
@@ -59,6 +59,7 @@ const SearchEngine = () => {
       resultsarrays[i] = resultData.slice(i, (i + 6));
     }
     setResultsArrays(resultsarrays)
+    window.localStorage.setItem('resultsArrays', JSON.stringify(resultsarrays));
     
   }, [resultData])
 
@@ -83,10 +84,6 @@ const SearchEngine = () => {
       })
       .catch((error) => { console.log(error) })
   }
-
-  
-
-   
 
   return (
     <div className={styles.SearchEngineContainer}>
@@ -195,12 +192,12 @@ const SearchEngine = () => {
         </div>
       </div>
       <div className={styles.ButtonRow}>
-          <button onClick={() => handleSubmit()}>Go</button>
+          <div className={styles.Btn} onClick={() => handleSubmit()}>GO</div>
       </div>
       <div className={styles.ResultsContainer}>
         {
           resultsArrays[0]?.map((data:any[], index:number) => {
-            const CardProps = {key: index, data: data}
+            const CardProps = {key: index, data: data, arrayIndex:0 }
             return <Card {...CardProps}/>
           })
         }

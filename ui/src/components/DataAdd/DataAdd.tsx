@@ -11,7 +11,7 @@ interface Property {
   suburb: string,
   city: string,
   postcode: number,
-  headImage?: string,
+  images?: [string],
   beds?: number,
   baths?: number,
   carparks?: number,
@@ -31,7 +31,7 @@ interface Property {
     suburb: "",
     city: "",
     postcode: 0,
-    headImage: "",
+    images: [],
     beds: 1,
     baths: 1,
     carparks: 0,
@@ -126,14 +126,14 @@ useEffect(() => {
        />
      </div>
      <div className={styles.InputLine}>
-       <label htmlFor="headImage">Header Image</label>
+       <label htmlFor="images">Header Image</label>
        <input
          type="text"
          placeholder="url..."
          className="infoInput"
-         name="headImage"
+         name="images"
          onChange={handleChange}
-         value={propertyData.headImage}
+         value={propertyData.images}
        />
      </div>
      <div className={styles.InputLine}>

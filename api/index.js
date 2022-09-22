@@ -16,7 +16,7 @@ app.use(cors())
 dotenv.config()
 
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(process.env.MONGO_DB, {
         // dbName: process.env.DB_NAME,
         // user: process.env.DB_USER,
         // pass: process.env.DB_PASS,

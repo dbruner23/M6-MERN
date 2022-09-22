@@ -7,7 +7,7 @@ const propertySchema = mongoose.Schema(
         suburb: String,
         city: String,
         postcode: Number,
-        headImage: String,
+        images: [String],
         beds: Number,
         baths: Number,
         carparks: Number,

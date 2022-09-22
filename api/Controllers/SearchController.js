@@ -4,6 +4,7 @@ import PropertyModel from '../Models/propertyModel.js';
 export const search = async (req, res) => {
     const { propertyType, priceMin, priceMax, beds, baths, transport, grocery, parks, pets, gyms, cafes } = req.body;
 
+    
     try {
         const propertiesMatch = await PropertyModel.find({
             propertyType: propertyType, 

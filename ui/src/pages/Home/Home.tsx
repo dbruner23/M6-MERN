@@ -1,19 +1,45 @@
 import React from 'react'
 import style from './Home.module.css'
+
+import CheckedImage from '../../images/Checks.png'
+import RefreshImage from '../../images/Refresh.png'
+import BlocksImage from '../../images/Blocks.png'
 import { LargeButton } from '../../components/Button-large/LargeButton'
 import { NavCards } from '../../components/HomeComponents/DisplayCards/NavCards'
-// import { PropertyCard } from '../../components/PropertyCard/PropertyCard'
+import Video from '../../components/Video/Video'
+import { useEffect, useState } from 'react'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
+import axios from 'axios'
+import Card from '../../components/SearchComponents/Cards/Card'
+import { useNavigate } from 'react-router-dom'
 
 
 const Home = () => {
+  const [resultData, setResultData] = useState([])
+  const [resultsArrays, setResultsArrays] = useState<any[]>([])
+  const Navigate = useNavigate();
 
-  const testing = () => {
-    console.log('this was a test')
+  useEffect(() => {
+    axios.get('http://localhost:4000/property')
+      .then((res) => {
+        console.log(res.data)   
+        setResultData(res.data)
+      })
+      .catch((error) => console.log(error))
+  }, [])
+
+  useEffect(() => {
+   let resultsarrays : any = [];
+    for (let i = 0; i <= (resultData.length - 1); i+=7) {
+      resultsarrays[i] = resultData.slice(i, (i + 6));
+    }
+     setResultsArrays(resultsarrays)
+    window.localStorage.setItem('resultsArrays', JSON.stringify(resultsarrays));
+
+  }, [resultData])
 
 
-  }
   return (
     <>
     <div className={style.topImageContainer}>
@@ -22,12 +48,12 @@ const Home = () => {
       <span className={style.imageText}>HELPING CLIENTS TO ACHIEVE HARMONY THROUGH OUR EXPERTESE AND SKILLS </span>
       <div className={style.topButtonContainer}>
         <LargeButton 
-          onClick={testing}
           text={'Book an apointment'}
+          link={'/Showcase'}
       /> 
-        <LargeButton
-          onClick={testing}
+        <LargeButton   
           text={'View our Properties'}
+          link={'/Search'}
       /> 
       </div>
       {/* <div className={style.rpmaIcon}></div> */}
@@ -49,32 +75,45 @@ const Home = () => {
         content={'We conduct a thorough appraisal of your property based on the current rent market. This will give you a good representation of where to set your rent and what possibilities there are for property advancements. '}
         header={'Property Management Auckland'}
         buttonHeader={'Book an Appraisal'}
-        image={'testing'}
+        image={CheckedImage}
+        link={'/Search:'} 
+
       /> 
       <NavCards
         content={'View what is available for your next home or apartment, from Mt. Albert and Three Kings to all over the Auckland region, we have your next place for you'}
         header={'Our Property Listings'}
         buttonHeader={'See our Listings'}
-        image={'testing'}
+        image={BlocksImage}
+        link={'/Search'} 
         /> 
 
       <NavCards 
         content={"Changing to Metro NZ Property Management is easy. We collect the required information from you and in return, you'll see the benefits of working with a people-focused company. "}
         header={'Change to Metro NZ Property Management'}
         buttonHeader={'Make the change'}
-        image={'testing'}
+        image={RefreshImage}  
+        link={'/Search:'} 
         /> 
     </div>
 
-    <div className={style.ourProperties}> Our Properties </div>
+    <div className={style.ourProperties}
+    > Our Properties </div>
 
-    <div className={style.ourPropertiesContainer}></div>
+    <div className={style.ourPropertiesContainer}>
+    {
+resultsArrays[0]?.map((data: any[], index: number) => {
+  const CardProps = { key: index, data: data, arrayIndex: 0 }
+  return <Card {...CardProps} />
+})
+}
+    </div>
 
-    <button className={style.viewAll}> View All Available Properties </button>
-
+    <button className={style.viewAll} onClick={() => Navigate('/Search')}> View All Available Properties </button>
      <div className={style.LuxuryApartments}>
         <span className={style.luxuryText}> Ask us about "The Antipodean" Luxury Apartments on Beach Rd, Auckland </span>
-        <span className={style.luxuryVideoContainer}> Video goes here </span>
+        <span className={style.luxuryVideoContainer}> 
+          <Video />
+         </span>
      </div>
 
      <div className={style.randomTextContainer}>

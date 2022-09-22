@@ -2,7 +2,7 @@ import style from './PropertyCard.module.css'
 import { SmallButton } from '../Button-small/small-button'
 
 interface Props {
-    headImage?: String;
+    images?: [String];
     Street?: String; 
     Suburb?: String;
     City?: String;  
@@ -21,7 +21,7 @@ interface Props {
 }
 
 
-export function PropertyCard({headImage, Street, Suburb, City, Cost, Beds, Baths, carparks, Grocery, Cafes, Gyms, Transport, Parks, buttonHeader, pets, onClick}: Props) {
+export function PropertyCard({images, Street, Suburb, City, Cost, Beds, Baths, carparks, Grocery, Cafes, Gyms, Transport, Parks, buttonHeader, pets, onClick}: Props) {
 
 
     if (!Grocery ) {  
@@ -52,7 +52,7 @@ export function PropertyCard({headImage, Street, Suburb, City, Cost, Beds, Baths
     return ( 
         <> 
         <div className={style.Container}>
-            <div className={style.PropertyImage}> {headImage} </div>
+            <div className={style.PropertyImage}> {images} </div>
             <span className={style.Address}>{Street}, {Suburb}, {City} </span>
             <span className={style.Price}>NZ ${Cost} Per Week</span>
             <div className={style.UtilitiesContainer}>

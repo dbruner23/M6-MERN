@@ -1,0 +1,25 @@
+.ArrowsBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 55%;
+}
+
+.SliderArrow > img {
+    width: 4rem;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.ImagesBox {
+    width: 50%;
+}
+
+.ImagesBox > img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}

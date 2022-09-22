@@ -18,14 +18,14 @@ interface CardProps {
 }
 
 const Card = ({key, data, arrayIndex}: CardProps) => {
-    const { _id, street, propertyType, suburb, city, postcode, headImage, beds, baths, carparks, price, info, transport, grocery, parks, pets, gyms, cafes } = data;
+    const { _id, street, propertyType, suburb, city, postcode, images, beds, baths, carparks, price, info, transport, grocery, parks, pets, gyms, cafes } = data;
     let navigate = useNavigate();
 
 
 return (
     <div className={styles.Card}>
         <div className={styles.Image}>
-            <img src={headImage}/>
+            <img src={images[0]}/>
         </div>
         <div className={styles.TextLine}>
             {street} {suburb} {city}

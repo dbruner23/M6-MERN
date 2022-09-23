@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styles from './SearchEngine.module.css'
 import Card from '../Cards/Card'
@@ -11,11 +12,34 @@ import bench from '../../../assets/search/parks.png'
 import bus from '../../../assets/search/transport.png'
 import paw from '../../../assets/search/pets.png'
 import trolley from '../../../assets/search/grocery.png'
+import { Navigate } from 'react-router-dom'
 
 
 
 const SearchEngine = () => {
+  let navigate = useNavigate();
   
+  interface Property {
+    id: string,
+    street: string,
+    propertyType: string,
+    suburb: String,
+    city: String,
+    postcode: Number,
+    images: [String],
+    beds: Number,
+    baths: Number,
+    carparks: Number,
+    price: Number,
+    info: String,
+    transport: Boolean,
+    grocery: Boolean,
+    parks: Boolean,
+    pets: Boolean,
+    gyms: Boolean,
+    cafes: Boolean
+  }
+
   interface PropertyQuery {
     propertyType: string,
     priceMin: number,
@@ -46,17 +70,30 @@ const SearchEngine = () => {
     cafes: false
   })
 
-  const [resultData, setResultData] = useState([])
-  
+  console.log(queryData)
+  // initialiser to recover state on navigating back
+  const initialiseResultData: Function = () => {
+    let storageData = localStorage.getItem('resultData')
+
+    if (storageData) {
+      return JSON.parse(storageData)
+    } else {
+      return [];
+    };
+  }
+
+  // returned data from search
+  const [resultData, setResultData] = useState<any[]>(initialiseResultData())
+
   // useState and useEffect to break returned data into array of arrays to display 6 results at a time
   const [resultsArrays, setResultsArrays] = useState<any[]>([])
-  console.log(resultsArrays[0]);
+  console.log(resultsArrays);
 
   useEffect(() => {
     let resultsarrays : any = [];
 
     for (let i = 0; i <= (resultData.length - 1); i+=7) {
-      resultsarrays[i] = resultData.slice(i, (i + 6));
+      resultsarrays.push(resultData.slice(i, (i + 6)));
     }
     setResultsArrays(resultsarrays)
     window.localStorage.setItem('resultsArrays', JSON.stringify(resultsarrays));
@@ -81,14 +118,59 @@ const SearchEngine = () => {
     await axios.post('http://localhost:4000/search', queryData)
       .then((response) => {
         setResultData(response.data)
+        window.localStorage.setItem('resultData', JSON.stringify(response.data));
       })
       .catch((error) => { console.log(error) })
   }
 
+  const quickSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    // let keyCategory = event.target.value 
+
+    const Sort:Function = (objArray:any[]) => {
+        if (objArray.length <= 1) {
+          return objArray;
+        }
+
+        var pivot = objArray[0].price;
+
+        var left = [];
+        var right = [];
+
+        for (var i = 1; i < objArray.length; i++) {
+          objArray[i].price < pivot ? left.push(objArray[i]) : right.push(objArray[i]);
+        }
+
+        return Sort(left).concat(objArray[0], Sort(right));
+      };
+      const sortedResults = Sort(resultData)
+
+      setResultData(sortedResults)
+    };   
+    
+    //for viewing more results
+    const [activeArray, setActiveArray] = useState(0);
+
+    const ArrayAdvance = () => {
+      if (activeArray === (resultsArrays.length) - 1) {
+        return null
+      } else {
+        setActiveArray(activeArray + 1);
+      }
+    }
+
+    const ArrayReverse = () => {
+      if (activeArray === 0) {
+        return null;
+      } else {
+        setActiveArray(activeArray - 1);
+      }
+    }
+    
+
   return (
     <div className={styles.SearchEngineContainer}>
       <div className={styles.HeaderText}>
-        <div className={styles.HeadTextItem} style={{ gap: '1rem'}}>
+        <div className={styles.HeadTextItem} style={{ gap: '1rem', cursor: 'pointer' }} onClick={() => { localStorage.clear(); navigate('/')}}>
           <img src={backarrow} style={{ height: '1rem'}} /><span style={{ fontSize: "1.4rem" }}>Back</span>
         </div>
         <div className={styles.HeadTextItem}>
@@ -196,14 +278,42 @@ const SearchEngine = () => {
       <div className={styles.ButtonRow}>
           <div className={styles.Btn} onClick={() => handleSubmit()}>GO</div>
       </div>
-      <div className={styles.ResultsContainer}>
+      {resultsArrays[activeArray] && (
+      <>
+        <div className={styles.ResultsText}>
+          <div>Sort search results by...</div>
+          <div className={styles.SelectItem}>
+            <div className={styles.container}>
+              <select name="propertyType" onChange={quickSort} className={styles.Selectbox}>
+                <option selected disabled>
+                  Select
+                </option>
+                <option value="price">Price</option>
+                <option value="beds">Bedrooms</option>
+                <option value="carparks">Car Parks</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className={styles.ResultsContainer}>
         {
-          resultsArrays[0]?.map((data:any[], index:number) => {
-            const CardProps = {key: index, data: data, arrayIndex:0 }
-            return <Card {...CardProps}/>
+          resultsArrays[activeArray]?.map((data: any[], index: number) => {
+            const CardProps = { key: index, data: data, arrayIndex: 0 }
+            return <Card {...CardProps} />
           })
         }
-      </div>
+        </div>
+          {(resultsArrays.length > 1) &&
+          <div className={styles.TextLine}>
+            <div style={activeArray > 0 ? { color: 'blue', cursor: 'pointer' } : { color: 'white', cursor: 'arrow' }} onClick={() => ArrayReverse()}>
+                Previous results...
+            </div>
+            <div style={activeArray === resultsArrays.length - 1 ? { color: 'gray'} : { color: 'blue', cursor: 'pointer' }} onClick={() => ArrayAdvance()}>
+                View more results...
+            </div>
+          </div>}
+      </>)
+      }
     </div>
   )
 }

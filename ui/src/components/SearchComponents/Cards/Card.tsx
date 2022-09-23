@@ -44,6 +44,7 @@ return (
             {gyms && (<div className={styles.IconBox}><img src={weights} /></div>)}
             {transport && (<div className={styles.IconBox}><img src={bus} /></div>)}
             {parks && (<div className={styles.IconBox}><img src={bench} /></div>)}
+            {pets && (<div className={styles.IconBox}><img src={paw} /></div>)}
         </div>
         <div className={styles.ButtonLine}>
             <div className={styles.Btn} onClick={() => navigate(`/property/${arrayIndex}/${_id}`) }>MORE INFO</div>

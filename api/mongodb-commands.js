@@ -72,3 +72,21 @@ db.properties.insertMany([
         beds: 3, baths: 1, carparks: 2, price: 1450, info: "Living large in Christchurch", transport: false, grocery: false, parks: true, pets: true, gyms: false, cafes: false
     }
 ])
+
+db.properties.insertMany([
+    {
+        street: "68A Alford Street", propertyType: "apartment", suburb: "Waterview", city: "Auckland", postcode: 1026,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1832482407.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1832482373.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1832482381.jpg"],
+        beds: 3, baths: 2, carparks: 2, price: 1280, info: "You've finally arrived.", transport: true, grocery: false, parks: true, pets: false, cafes: false
+    },
+    {
+        street: "1C Withiel Drive", propertyType: "apartment", suburb: "Epsom", city: "Auckland", postcode: 1023,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1833080931.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1833080966.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1833080941.jpg"],
+        beds: 3, baths: 2, carparks: 1, price: 1140, info: "Check out this baller pad", transport: true, grocery: false, parks: true, pets: true, gyms: true, cafes: true
+    },
+    {
+        street: "16/34 Pollen Street", propertyType: "apartment", suburb: "Grey Lynn", city: "Auckland", postcode: 1021,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1831963614.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831967950.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831967962.jpg"],
+        beds: 2, baths: 1, carparks: 1, price: 980, info: "Posher than posh.", transport: true, grocery: true, parks: true, pets: true, gyms: true, cafes: true
+    }  
+])

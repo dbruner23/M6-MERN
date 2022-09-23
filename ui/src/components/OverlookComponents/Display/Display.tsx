@@ -48,7 +48,7 @@ const Display = () => {
   return (
     <div className={styles.DisplayContainer}>
           <div className={styles.HeaderText} style={{ gap: '.7rem', cursor: 'pointer' }} onClick={() => navigate('/search')}>
-              <img src={backarrow} style={{ height: '.8rem' }} /><span style={{ fontSize: "1rem" }}>Back to search results</span>
+              <img src={backarrow} style={{ height: '1rem' }} /><span style={{ fontSize: "1.3rem" }}>Back to search results</span>
           </div>
           <div className={styles.HeaderText} style={{ justifyContent: 'center'}}>
               {street} {suburb} {city}
@@ -71,7 +71,7 @@ const Display = () => {
               {transport && (<img src={bus} />)}
               {parks && (<img src={bench} />)}
           </div>
-          <div className={styles.IconLine} style={{ marginTop: '1rem', gap: '2.5rem'}}>
+          <div className={styles.IconLine} style={{ marginTop: '1rem', marginBottom: '3rem', gap: '2.5rem'}}>
               <div className={styles.Btn}>Book a Call</div><div>OR</div><div className={styles.Btn}>Apply Now</div>
           </div>
           <div className={styles.InfoContainer}>

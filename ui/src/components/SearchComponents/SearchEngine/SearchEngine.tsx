@@ -54,8 +54,7 @@ const SearchEngine = () => {
     cafes: boolean
   }
 
-  
-
+  //state for storing query data
   const [queryData, setQueryData] = useState({
     propertyType: "",
     priceMin: 0,
@@ -70,7 +69,6 @@ const SearchEngine = () => {
     cafes: false
   })
 
-  console.log(queryData)
   // initialiser to recover state on navigating back
   const initialiseResultData: Function = () => {
     let storageData = localStorage.getItem('resultData')
@@ -82,10 +80,11 @@ const SearchEngine = () => {
     };
   }
 
-  // returned data from search
+  // state for no results
+  const [noResults, setNoResults] = useState(false)
+  // state for storing search results
   const [resultData, setResultData] = useState<any[]>(initialiseResultData())
-
-  // useState and useEffect to break returned data into array of arrays to display 6 results at a time
+  // State and useEffect to break search results into array of arrays and store for pagination
   const [resultsArrays, setResultsArrays] = useState<any[]>([])
   console.log(resultsArrays);
 
@@ -101,7 +100,6 @@ const SearchEngine = () => {
   }, [resultData])
 
   //functions for gathering and sending query data
-
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -110,7 +108,7 @@ const SearchEngine = () => {
     if (name === "priceMax" && intvalue < queryData.priceMin) {
       setQueryData({ ...queryData, priceMin: intvalue, priceMax: prevMin })
     } else {
-      setQueryData({ ...queryData, [name]: value });   
+      setQueryData({ ...queryData, [name]: value });
     }
   };
 
@@ -119,14 +117,20 @@ const SearchEngine = () => {
       .then((response) => {
         setResultData(response.data)
         window.localStorage.setItem('resultData', JSON.stringify(response.data));
+        if (response.data.length === 0) {
+          setNoResults(true);
+        } else {
+          setNoResults(false);
+        }
       })
       .catch((error) => { console.log(error) })
   }
 
-  const quickSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // let keyCategory = event.target.value 
-
-    const Sort:Function = (objArray:any[]) => {
+  //quickSort for sorting results by selected field values
+  const quickSort = (event: React.ChangeEvent<HTMLSelectElement>) => { 
+    let sortfield = event.target.value;
+    
+    const Sort: Function = (objArray: any[]) => {
         if (objArray.length <= 1) {
           return objArray;
         }
@@ -147,7 +151,7 @@ const SearchEngine = () => {
       setResultData(sortedResults)
     };   
     
-    //for viewing more results
+    //state and advance/reverse functions for viewing more pages of results
     const [activeArray, setActiveArray] = useState(0);
 
     const ArrayAdvance = () => {
@@ -278,6 +282,11 @@ const SearchEngine = () => {
       <div className={styles.ButtonRow}>
           <div className={styles.Btn} onClick={() => handleSubmit()}>GO</div>
       </div>
+      {noResults && (
+        <div className={styles.TextLine}>
+          We couldn't find exactly what you're looking for, please try refining your search.
+        </div>
+      )}
       {resultsArrays[activeArray] && (
       <>
         <div className={styles.ResultsText}>
@@ -298,7 +307,7 @@ const SearchEngine = () => {
         <div className={styles.ResultsContainer}>
         {
           resultsArrays[activeArray]?.map((data: any[], index: number) => {
-            const CardProps = { key: index, data: data, arrayIndex: 0 }
+            const CardProps = { key: index, data: data, arrayIndex: activeArray }
             return <Card {...CardProps} />
           })
         }

@@ -116,6 +116,11 @@
     border-radius: .5rem;
 }
 
+.Btn:hover {
+    background: #ed797b;
+    transition: 0.2s;
+}
+
 .ResultsText {
     display: flex;
     justify-content: center;
@@ -124,16 +129,16 @@
     width: 100%;
     font-family: 'Outfit';
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .ResultsContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 3rem;
     flex-wrap: wrap;
-    gap: 2rem;
-    width: 90vw;
+    width: 81vw;
 
 }
 

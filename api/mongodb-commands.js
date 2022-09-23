@@ -90,3 +90,26 @@ db.properties.insertMany([
         beds: 2, baths: 1, carparks: 1, price: 980, info: "Posher than posh.", transport: true, grocery: true, parks: true, pets: true, gyms: true, cafes: true
     }  
 ])
+
+db.properties.insertMany([
+    {
+        street: "70 Office Rd.", propertyType: "apartment", suburb: "Merivale", city: "Christchurch", postcode: 8014,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1832529413.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1832529431.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1832529467.jpg"],
+        beds: 3, baths: 3, carparks: 2, price: 950, info: "You know you wish you were cool enough to live here.", transport: true, grocery: true, parks: true, pets: false, gyms: true, cafes: true
+    }, 
+    {
+        street: "23 Napier Street", propertyType: "apartment", suburb: "Karaka Bays", city: "Wellington", postcode: 6022,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1831419814.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831419827.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831419825.jpg"],
+        beds: 3, baths: 2, carparks: 2, price: 900, info: "The view says it all.", transport: false, grocery: false, parks: true, pets: true, cafes: false
+    },
+    {
+        street: "4F Regent St.", propertyType: "apartment", suburb: "Newton", city: "Wellington", postcode: 6021,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1827033790.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1827033806.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1827033815.jpg"],
+        beds: 3, baths: 2, carparks: 1, price: 900, info: "Can somebody say high-end?", transport:true, grocery: true, parks: true, pets: true, gyms: true, cafes: true
+    },
+    {
+        street: "117 Marine Parade", propertyType: "apartment", suburb: "Seatoun", city: "Wellington", postcode: 6022,
+        images: ["https://trademe.tmcdn.co.nz/photoserver/plus/1831217896.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831217904.jpg", "https://trademe.tmcdn.co.nz/photoserver/plus/1831217915.jpg"],
+        beds: 4, baths: 3, carparks: 2, price: 1500, info: "Welcome to the Wellington baller status.", transport: false, grocery: true, parks: true, pets: false, gyms: false, cafes: true
+    }
+])

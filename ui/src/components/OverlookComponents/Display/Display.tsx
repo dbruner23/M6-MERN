@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Display.module.css'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import ImageSlider from '../ImageSlider/ImageSlider'
 import backarrow from '../../../assets/search/arrowleft.png'
 import car from '../../../assets/search/car.png'
@@ -16,7 +16,8 @@ import trolley from '../../../assets/search/grocery.png'
 import lady from '../../../assets/search/lady.png'
 
 const Display = () => {
-    let resultsData = JSON.parse(window.localStorage.getItem("resultsArrays")||"");
+    let navigate = useNavigate();
+    let resultsData = JSON.parse(window.localStorage.getItem("resultsArrays") || "");
     const { arrayindex, id } = useParams() as any;
 
     //@ts-ignore
@@ -46,8 +47,8 @@ const Display = () => {
 
   return (
     <div className={styles.DisplayContainer}>
-          <div className={styles.HeaderText} style={{ gap: '.7rem', cursor: 'pointer' }}>
-              <img src={backarrow} style={{ height: '.8rem' }} /><span style={{ fontSize: "1rem" }}>Back</span>
+          <div className={styles.HeaderText} style={{ gap: '.7rem', cursor: 'pointer' }} onClick={() => navigate('/search')}>
+              <img src={backarrow} style={{ height: '.8rem' }} /><span style={{ fontSize: "1rem" }}>Back to search results</span>
           </div>
           <div className={styles.HeaderText} style={{ justifyContent: 'center'}}>
               {street} {suburb} {city}

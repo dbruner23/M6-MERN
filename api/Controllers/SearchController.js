@@ -7,20 +7,38 @@ export const search = async (req, res) => {
     
     try {
         const propertiesMatch = await PropertyModel.find({
-            propertyType: propertyType, 
-            price: { $gte: priceMin, $lte: priceMax },
-            beds: { $gte: beds },
-            baths: { $gte: baths },
-            transport: transport,
-            grocery: grocery,
-            parks: parks,
-            pets: pets,
-            gyms: gyms,
-            cafes: cafes
-        })
-
+            $and: [
+                { propertyType: propertyType },
+                { price: { $gte: priceMin, $lte: priceMax } },
+                { beds: { $gte: beds } },
+                { baths: { $gte: baths } },
+                {
+                    $or: [
+                        { pets: pets },
+                        { transport: transport },
+                        { grocery: grocery },
+                        { parks: parks },
+                        { gyms: gyms },
+                        { cafes: cafes }
+                    ]
+                }
+            ]
+        });
         res.status(200).json(propertiesMatch)
     } catch (error) {
         res.status(500).json(error)
     }
 }
+
+// const propertiesMatch = await PropertyModel.find({
+//     propertyType: propertyType,
+//     price: { $gte: priceMin, $lte: priceMax },
+//     beds: { $gte: beds },
+//     baths: { $gte: baths },
+//     transport: transport,
+//     grocery: grocery,
+//     parks: parks,
+//     pets: pets,
+//     gyms: gyms,
+//     cafes: cafes
+// })
